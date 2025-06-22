@@ -12,6 +12,7 @@ public class Circle extends GeometricObject implements Comparable<Circle> {
   }
 
   public void setRadius(double radius) {
+    if (radius < 0) throw new IllegalArgumentException("Radius cannot be negative");
     this.radius = radius;
   }
 
@@ -21,12 +22,12 @@ public class Circle extends GeometricObject implements Comparable<Circle> {
 
   @Override
   public String toString() {
-    return "Circle(" + "radius" + radius + ')';
+    return "Circle(radius = " + "radius" + radius + ")";
   }
 
   @Override
   public double getPerimeter() {
-    return radius * radius * Math.PI;
+    return 2 * Math.PI * radius;
   }
 
   @Override
@@ -39,11 +40,25 @@ public class Circle extends GeometricObject implements Comparable<Circle> {
       return 0;
     }
   }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) return true;
+    if (obj == null || getClass() != obj.getClass()) return false;
+    Circle circle = (Circle) obj;
+    return Double.compare(circle.radius, radius) == 0;
+  }
+  
+  @Override
+  public int hashCode() {
+    return Double.hashCode(radius);
+  }
+  
   public static void main(String[] args) {
     Circle o1 = new Circle(10.0);
     Circle o2 = new Circle(5.0);
 
     System.out.println(o1.equals(o2));
-    System.out.println(o1.compareto(o2));
+    System.out.println(o1.Compareto(o2));
   }
 }
