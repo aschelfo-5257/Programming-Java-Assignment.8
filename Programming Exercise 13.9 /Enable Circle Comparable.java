@@ -22,7 +22,7 @@ public class Circle extends GeometricObject implements Comparable<Circle> {
 
   @Override
   public String toString() {
-    return "Circle(radius = " + "radius" + radius + ")";
+    return "Circle(radius = " + "radius = " + radius + ")";
   }
 
   @Override
@@ -59,6 +59,6 @@ public class Circle extends GeometricObject implements Comparable<Circle> {
     Circle o2 = new Circle(5.0);
 
     System.out.println(o1.equals(o2));
-    System.out.println(o1.Compareto(o2));
+    System.out.println(o1.compareto(o2));
   }
 }
